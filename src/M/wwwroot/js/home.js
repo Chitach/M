@@ -24,6 +24,6 @@ $(document).ready(function () {
 
 function scrollToHash(hash) {
 	$('html, body').animate({
-		scrollTop: $(hash).offset().top
+		scrollTop: $(hash).offset().top - 80
 	}, scrollTime);
 }
