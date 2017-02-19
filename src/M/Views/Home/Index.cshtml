@@ -1,0 +1,30 @@
+﻿@model M.Models.HomeViewModels.HomeViewModel
+
+@section Header {
+	<link href="~/css/home.css" rel="stylesheet" />
+}
+<div class="row">
+	<div class="col-md-8">
+		@foreach (var post in Model.Posts) {
+			<div class="post">
+				<div class="post-date">
+					<div class="post-date-date">
+						@post.PostingTime.Day <br /> @post.GetPostingMonth()
+					</div>
+					<div class="post-date-time">
+						@post.GetPostingTime()
+					</div>
+				</div>
+				<div class="post-info">
+					@if (!string.IsNullOrEmpty(post.ImageUrl)) {
+						<img class="full-width" src="@post.ImageUrl" />
+					}
+					<h3>@post.Title</h3>
+					<br />
+					<p>@post.Text</p>
+				</div>
+				<hr />
+			</div>
+		}
+	</div>
+</div>

@@ -1,0 +1,32 @@
+﻿@section Header {
+}
+<form id="AddPost" method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label for="Title">Введіть заголовок вашого поста</label>
+		<input type="text" class="form-control" id="Title" name="Title" placeholder="Заголовок">
+		<small id="TitleHelp" class="form-text text-muted">Заголовок може передавати тему поста чи його основну думку.</small>
+	</div>
+	<div class="form-group">
+		<label for="Text">Введіть текст вашого поста</label>
+		<textarea rows="10" class="form-control" id="Text" name="Text" placeholder="Текст"></textarea>
+		<small id="TextHelp" class="form-text text-muted"></small>
+	</div>
+	<div class="form-group">
+		<label for="Image">Вибрати зображення</label>
+		<input type="file" id="Image" name="Image" />
+	</div>
+	<br /><br />
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Додати пост</button>
+	</div>
+</form>
+<script>
+	$("#AddPost").ajaxForm({
+		url: "AddPost",
+		type: 'POST',
+		enctype: "multipart/form-data",
+		success: function () {
+			$('#AddPost').get(0).reset()
+		}
+	});
+</script>

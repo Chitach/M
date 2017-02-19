@@ -1,0 +1,104 @@
+﻿.post {
+	padding-bottom: 30px;
+}
+
+.post-date {
+	display: block;
+	width: 30%;
+	margin-left: 70%;
+	margin-bottom: 5px;
+	padding: 5px;
+	vertical-align: top;
+	text-align: center;
+	color: #fff;
+	background-color: #222222;
+	font-family: 'Lucida Handwriting';
+	font-size: 16px;
+}
+
+.post-date-time {
+	display: none;
+}
+
+.post-info {
+	display: block;
+	vertical-align: top;
+	padding-bottom: 20px;
+	font-family: 'Segoe Print';
+	line-height: 22px;
+}
+
+.post-info p {
+	font-size: 15px;
+}
+
+.post-info h3 {
+	margin-top: 0;
+}
+
+.post-info img {
+	margin-bottom: 20px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+	body {
+		/*background-image: url('../images/background/main_background_320.jpg');*/
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+	body {
+		/*background-image: url('../images/background/main_background_480.jpg');*/
+	}
+
+	.post-date {
+		display: inline-block;
+		width: 25%;
+		margin-right: 2%;
+		margin-left: 0;
+		padding: 15px;
+		font-size: 20px;
+	}
+
+	.post-date-time {
+		display: block;
+		vertical-align: bottom;
+		margin-right: -13px;
+		margin-bottom: -13px;
+		float: right;
+		font-size: 12px;
+	}
+
+	.post-info {
+		width: 72%;
+	}
+
+
+	.post-info {
+		display: inline-block;
+		margin-left: 0;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	body {
+		/*background-image: url('../images/background/main_background_768.jpg');*/
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	body {
+		/*background-image: url('../images/background/main_background_992.jpg');*/
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	body {
+		/*background-image: url('../images/background/main_background_1200.jpg');*/
+	}
+}
