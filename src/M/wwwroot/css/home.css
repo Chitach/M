@@ -28,6 +28,10 @@
 	line-height: 22px;
 }
 
+.post-info-title {
+	color: #981515 ;
+}
+
 .post-info p {
 	font-size: 15px;
 }
@@ -38,6 +42,71 @@
 
 .post-info img {
 	margin-bottom: 20px;
+}
+
+.additional-info {
+	display: block;
+	padding-top: 0;
+	font-family: 'Segoe Print';
+}
+
+.additional-info-section {
+	display: block;
+	width: 100%;
+	margin-bottom: 60px;
+}
+
+.additional-info-title {
+	font-size: 17px;
+}
+
+.post-mini-item {
+	display: block;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.post-mini-icon {
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+	margin-right: 20px;
+}
+
+.post-mini-info {
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+}
+
+.post-mini-title {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: bold;
+}
+
+.post-mini-date {
+	display: block;
+	font-family: 'Lucida Handwriting';
+}
+
+.additional-info a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.post-mini-info a {
+	color: #337ab7;
+}
+
+.post-mini-info a:hover {
+	color: #d6b161;
+}
+
+.autor-avatar {
+	display: block;
+	height: 400px;
 }
 
 /* Custom, iPhone Retina */

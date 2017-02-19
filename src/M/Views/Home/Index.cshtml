@@ -2,11 +2,15 @@
 
 @section Header {
 	<link href="~/css/home.css" rel="stylesheet" />
+	<script src="~/lib/jquery-ui/jquery-ui.js"></script>
+	<script src="~/js/home.js"></script>
 }
+
+@{ViewBag.Title = "Поки просто блог"; }
 <div class="row">
 	<div class="col-md-8">
 		@foreach (var post in Model.Posts) {
-			<div class="post">
+			<div class="post" id="@post.Id">
 				<div class="post-date">
 					<div class="post-date-date">
 						@post.PostingTime.Day <br /> @post.GetPostingMonth()
@@ -19,12 +23,43 @@
 					@if (!string.IsNullOrEmpty(post.ImageUrl)) {
 						<img class="full-width" src="@post.ImageUrl" />
 					}
-					<h3>@post.Title</h3>
+					<h3 class="post-info-title">@post.Title</h3>
 					<br />
 					<p>@post.Text</p>
 				</div>
 				<hr />
 			</div>
 		}
+	</div>
+	<div class="col-md-4">
+		<div class="additional-info">
+			@{int miniPostsCount = Model.Posts.Count >= 3 ? 3 : Model.Posts.Count;}
+			<div class="last-posts">
+				<p class="additional-info-title">Останні пости</p>
+				<hr />
+				@for (int i = 0; i < miniPostsCount; i++) {
+					var post = Model.Posts[i];
+					<div class="post-mini-item">
+						<div class="post-mini-icon">
+							@if (!string.IsNullOrEmpty(post.ImageUrl)) {
+								<a href="#@post.Id">
+									<img class="full-width" src="@post.ImageUrl" />
+								</a>
+							} else {
+								<a href="#@post.Id">
+									<img class="full-width" src="/images/no-image.png" />
+								</a>
+							}
+						</div>
+						<div class="post-mini-info">
+							<a href="#@post.Id">
+								<div class="post-mini-title">@post.Title </div>
+							</a>
+							<div class="post-mini-date">@post.PostingTime.Day @post.GetPostingMonth(), @post.GetPostingTime() </div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
 	</div>
 </div>
