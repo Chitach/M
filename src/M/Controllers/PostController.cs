@@ -33,7 +33,7 @@ namespace M.Controllers {
 
 			post.PostingTime = DateTime.Now;
 			IFormFile image = (Request.Form.Files != null && Request.Form.Files.Count > 0) ? Request.Form.Files[0] : null;
-			if (image != null) {
+			if (image != null && !string.IsNullOrEmpty(image.FileName)) {
 				string fileName = ContentDispositionHeaderValue.Parse(image.ContentDisposition).FileName.Trim('"');
 				post.ImageUrl = Path.Combine(_configuration.AppSettings.PostImagesFolder, Guid.NewGuid() + fileName);
 				using (FileStream fileStream = new FileStream(Path.Combine(_env.WebRootPath, post.ImageUrl), FileMode.Create)) {

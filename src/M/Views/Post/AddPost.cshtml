@@ -20,13 +20,3 @@
 		<button type="submit" class="btn btn-primary">Додати пост</button>
 	</div>
 </form>
-<script>
-	$("#AddPost").ajaxForm({
-		url: "AddPost",
-		type: 'POST',
-		enctype: "multipart/form-data",
-		success: function () {
-			$('#AddPost').get(0).reset()
-		}
-	});
-</script>
