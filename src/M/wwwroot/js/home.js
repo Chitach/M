@@ -6,7 +6,7 @@ $(document).ready(function () {
 		scrollToHash(hash);
 	}
 
-	$("a").on('click', function (event) {
+	$("a.scroll-to-post").on('click', function (event) {
 		var hash = this.hash;
 		scrollToHash(hash);
 		if (history.pushState) {
