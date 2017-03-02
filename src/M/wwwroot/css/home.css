@@ -1,4 +1,5 @@
 ﻿.post {
+	padding: 10px 20px 0 0;
 }
 
 .posts-top-offset {
@@ -6,9 +7,7 @@
 }
 
 .post-date {
-	display: block;
-	width: 87px;
-	margin-bottom: 12px;
+	display: none;
 	padding: 10px;
 	vertical-align: top;
 	text-align: center;
@@ -21,7 +20,6 @@
 	border-radius: 10px;
 	border: 2px #ccc dotted;
 	box-shadow: 4px 4px 1px #888;
-	margin-top: -20px;
 }
 
 .post-date-time {
@@ -31,7 +29,6 @@
 .post-info {
 	display: block;
 	vertical-align: top;
-	padding-bottom: 20px;
 	font-family: 'Segoe Print';
 	line-height: 22px;
 }
@@ -129,21 +126,17 @@
 		/*background-image: url('../images/background/main_background_480.jpg');*/
 	}
 
-	.post {
-		padding-bottom: 30px;
-	}
-
 	.posts-top-offset {
 		height: 50px;
 	}
 
 	.post-date {
 		display: inline-block;
-		width: 25%;
-		margin-right: 2%;
+		width: 90px;
+		height: 84px;
+		float: left;
 		margin-left: 0;
-		font-size: 28px;
-		margin-top: -50px;
+		font-size: 17px;
 		margin-bottom: 5px;
 		padding: 17px;
 	}
@@ -154,17 +147,11 @@
 		margin-right: -13px;
 		margin-bottom: -13px;
 		float: right;
-		font-size: 16px;
+		font-size: 11px;
 	}
 
 	.post-info {
-		width: 72%;
-	}
-
-
-	.post-info {
-		display: inline-block;
-		margin-left: 0;
+		margin-left: 115px;
 	}
 }
 
@@ -172,6 +159,22 @@
 @media only screen and (min-width : 768px) {
 	body {
 		/*background-image: url('../images/background/main_background_768.jpg');*/
+	}
+
+	.post-date {
+		width: 126px;
+		height: 125px;
+		float: left;
+		font-size: 28px;
+	}
+
+	.post-date-time {
+		float: right;
+		font-size: 16px;
+	}
+
+	.post-info {
+		margin-left: 176px;
 	}
 }
 
