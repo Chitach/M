@@ -7,23 +7,33 @@
 }
 
 .post-date {
-	display: none;
-	padding: 10px;
-	vertical-align: top;
-	text-align: center;
-	color: #000;
-	background-color: #f5f5f5;
+	display: inline-block;
+	text-align: right;
 	font-family: 'Lucida Handwriting';
-	font-size: 16px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	border: 2px #ccc dotted;
-	box-shadow: 4px 4px 1px #888;
+	font-style: oblique;
+	font-size: 17px;
+	font-weight: bold;
+	background-color: antiquewhite;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.post-date-date {
+	display: inline-block;
+}
+
+.post-date-date-day {
+	display: inline-block;
+	margin-right: 2px;
+}
+
+.post-date-date-month {
+	display: inline-block;
+	margin-right: 2px;
 }
 
 .post-date-time {
-	display: none;
+	display: inline-block;
 }
 
 .post-info {
@@ -136,9 +146,20 @@
 		height: 84px;
 		float: left;
 		margin-left: 0;
-		font-size: 17px;
 		margin-bottom: 5px;
 		padding: 17px;
+		vertical-align: top;
+		text-align: center;
+		color: #000;
+		background-color: #f5f5f5;
+		font-family: 'Lucida Handwriting';
+		font-size: 16px;
+		font-style: normal;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		border: 2px #ccc dotted;
+		box-shadow: 4px 4px 1px #888;
 	}
 
 	.post-date-time {
@@ -151,6 +172,10 @@
 	}
 
 	.post-info {
+		margin-left: 115px;
+	}
+
+	.additional-info {
 		margin-left: 115px;
 	}
 }
@@ -176,12 +201,20 @@
 	.post-info {
 		margin-left: 176px;
 	}
+
+	.additional-info {
+		margin-left: 176px;
+	}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
 	body {
 		/*background-image: url('../images/background/main_background_992.jpg');*/
+	}
+
+	.additional-info {
+		margin-left: 0;
 	}
 }
 

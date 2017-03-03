@@ -14,7 +14,7 @@
 			<div class="post" id="@post.Id">
 				<div class="post-date">
 					<div class="post-date-date">
-						@post.PostingTime.Day <br /> @post.GetPostingMonth()
+						<div class="post-date-date-day">@post.PostingTime.Day</div><div class="post-date-date-month">@post.GetPostingMonth()</div>
 					</div>
 					<div class="post-date-time">
 						@post.GetPostingTime()
@@ -30,7 +30,7 @@
 				</div>
 				<hr />
 			</div>
-		}
+			}
 	</div>
 	<div class="col-md-4">
 		<div class="posts-top-offset"></div>
