@@ -8,9 +8,10 @@ using M.Data;
 namespace M.Migrations
 {
     [DbContext(typeof(MDbContext))]
-    partial class MDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170319201351_Entity")]
+    partial class Entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -48,10 +49,6 @@ namespace M.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 

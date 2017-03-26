@@ -1,7 +1,9 @@
 ﻿using M.Configuration;
 using M.Data;
+using M.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +38,10 @@ namespace M {
 			string connectionString = Configuration.GetConnectionString("DefaultConnection");
 			services.AddDbContext<MDbContext>(options =>
 				options.UseSqlServer(connectionString));
+
+			services.AddIdentity<User, IdentityRole>()
+				.AddEntityFrameworkStores<MDbContext>();
+
 			services.AddMvc();
 
 			services.AddSingleton(s => AppConfiguration);
@@ -58,6 +64,8 @@ namespace M {
 			app.UseApplicationInsightsExceptionTelemetry();
 
 			app.UseStaticFiles();
+
+			app.UseIdentity();
 
 			app.UseMvc(routes => {
 				routes.MapRoute(

@@ -8,9 +8,10 @@ using M.Data;
 namespace M.Migrations
 {
     [DbContext(typeof(MDbContext))]
-    partial class MDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170322210050_IdentityUserModel")]
+    partial class IdentityUserModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

@@ -1,11 +1,25 @@
-﻿.full-width {
-	position: relative;
-	width: 100%;
-	max-width: 100%;
+﻿.user-register {
+	text-align: center;
+	font-family: 'Segoe Print';
 }
 
-.left-menu {
-	border: 3px solid red;
+.reg-form-label {
+	display: block;
+	font-size: larger;
+}
+
+.reg-form-control {
+	display: block;
+	margin: auto;
+}
+
+.reg-form-group {
+	margin-bottom: 20px;
+}
+
+.reg-form-error {
+	font-size: 12px;
+	color: #f00;
 }
 
 /* Custom, iPhone Retina */
@@ -27,10 +41,6 @@
 	body {
 		/*background-image: url('../images/background/main_background_768.jpg');*/
 	}
-
-	.nav-item {
-		display: inline-block !important;
-	}
 }
 
 /* Medium Devices, Desktops */
@@ -46,32 +56,3 @@
 		/*background-image: url('../images/background/main_background_1200.jpg');*/
 	}
 }
-
-
-/*NAVBAR*/
-.nav {
-	width: 100%;
-	text-align: center;
-}
-
-nav.def-nav {
-	background-color: #fff !important;
-	border: none !important;
-}
-
-.navbar .nav-collapse {
-	margin: 7.5px auto;
-	padding: 0;
-}
-
-.nav-item {
-	display: block;
-	padding-left: 40px;
-	padding-top: 10px;
-	font-family: segoe print;
-	text-decoration: none !important;
-	color: rgb(51, 51, 51);
-	font-size: 22px;
-	font-weight: bold;
-}
-

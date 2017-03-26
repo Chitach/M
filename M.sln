@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B04EE00F-E477-4D14-AB43-153F253958D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24E03C44-1B61-4C35-BFD2-93EB273534C5}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
+		C:\Users\Gdmis\Desktop\M\global.json = C:\Users\Gdmis\Desktop\M\global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "M", "src\M\M.xproj", "{DA54835E-E1CC-41BF-993F-7FE994F64EDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M", "C:\Users\Gdmis\Desktop\M\src\M\M.csproj", "{DA54835E-E1CC-41BF-993F-7FE994F64EDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
