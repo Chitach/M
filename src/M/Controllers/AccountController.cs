@@ -16,11 +16,16 @@ namespace M.Controllers {
 
 		[HttpGet]
 		public IActionResult Register() {
-			return View();
+			RegisterViewModel model = new RegisterViewModel();
+			return View(model);
 		}
 
 		[HttpPost]
 		public async Task<IActionResult> Register(RegisterViewModel model) {
+			model.FirstNameErrorMessage = "some test message here";
+			model.LastNameErrorMessage = "last name error message";
+			model.EmailErrorMessage = "email error message";
+			model.PasswordErrorMessage = "password";
 			if (ModelState.IsValid) {
 				User user = new User { Email = model.Email, UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName };
 				// add user
