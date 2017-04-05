@@ -14,7 +14,14 @@ function tryToSubmitRegForm() {
 			contentType: 'application/x-www-form-urlencoded; charset=utf-8',
 			data: data,
 			success: function (result) {
-
+				window.location.replace(HomePageUrl);
+			},
+			error: function (error) {
+				if (error.status == 400) {
+					validateRegUserForm();
+				} else {
+					alert("Вибачте сталася помилка. Адміністратор повідомлений про помилку і працює над її виправленням");
+				}
 			}
 		});
 	}
