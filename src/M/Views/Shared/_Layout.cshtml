@@ -25,13 +25,15 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<div class="nav navbar-nav">
-				<a class="nav-item" href="@Url.Action("Index", "Home")">Блог</a>
-				<a class="nav-item" href="#">Про автора</a>
-				<a class="nav-item" href="#">Контакти</a>
-				<a class="nav-item" style="float: right;" href="#">
+				<a class="nav-item ac-icon" href="#">
 					<img class="img-responsive" style="display: inline-block" src="~/images/user-icon.svg" />
-					Gd.misha@gmail.com
+					
 				</a>
+				<div style="display:block">
+					<a class="nav-item" href="@Url.Action("Index", "Home")">Блог</a>
+					<a class="nav-item" href="#">Про автора</a>
+					<a class="nav-item" href="#">Контакти</a>
+				</div>
 			</div>
 		</div><!-- /.navbar-collapse -->
 	</nav><!-- /.navbar -->
