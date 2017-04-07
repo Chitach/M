@@ -27,6 +27,37 @@ function tryToSubmitRegForm() {
 	}
 }
 
+function tryToLogin() {
+	var formData = $("#Login_Form");
+	var email = $(formData).find("#Email").val();
+	var password = $(formData).find("#Password").val();
+
+	if (!validateEmail(email)) {
+		$(formData).find("#Email").parent().find(".login-form-error").html("Введено не корекний email");
+	} else if (password.length < 8) {
+		isRegUserFormValid = false;
+		$(formData).find("#Password").parent().find(".login-form-error").html("Пороль не повинен бути коротшим 8 символів");
+	} else {
+		var data = objectifyForm(formData.serializeArray());
+		$.ajax({
+			url: "http://localhost:64666/account/login",
+			method: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+			data: data,
+			success: function (result) {
+				window.location.replace(HomePageUrl);
+			},
+			error: function (error) {
+				if (error.status == 401) {
+					$(formData).find("#Email").parent().find(".reg-form-error").html("Користувача з таким email не існує");
+				} else {
+					$(formData).find("#Password").parent().find(".reg-form-error").html("Пароль невірний");
+				}
+			}
+		});
+	}
+}
+
 function validateRegUserForm(formData) {
 	var firstName = $(formData).find("#FirstName").val();
 	var lastName = $(formData).find("#LastName").val();

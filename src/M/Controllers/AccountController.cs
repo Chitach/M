@@ -16,6 +16,7 @@ namespace M.Controllers {
 			_signInManager = signInManager;
 		}
 
+		#region Register
 		[HttpGet]
 		public IActionResult Register() {
 			RegisterViewModel model = new RegisterViewModel();
@@ -40,14 +41,52 @@ namespace M.Controllers {
 
 			return BadRequest("Validation error");
 		}
+		#endregion
 
+		#region Login/Logout 
+		[HttpGet]
+		public IActionResult Login(string returnUrl = null) {
+			return View(new LoginViewModel { ReturnUrl = returnUrl });
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Login(LoginViewModel model) {
+			User user = await _userManager.FindByEmailAsync(model.Email);
+			if (user != null) {
+				var result =
+					await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+				if (result.Succeeded) {
+					// check if URL belongs to application
+					if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl)) {
+						return Redirect(model.ReturnUrl);
+					} else {
+						return RedirectToAction("Index", "Home");
+					}
+				} else {
+					Response.StatusCode = 401;
+					return Content("Wrong Password");
+				}
+			} else {
+				Response.StatusCode = 402;
+				return Content("User does not exist");
+			}
+		}
+
+		public async Task<IActionResult> LogOff() {
+			// delete identification cookies
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Home");
+		}
+		#endregion
+
+		#region private helpers
 		private UserRegisterValidationResult ValidateUserRegisterModel(RegisterViewModel model) {
 			UserRegisterValidationResult result = new UserRegisterValidationResult();
 
 			if (model.FirstName.Trim().Length == 0) {
 				result.FirstNameErrorMessage = "Ім\'я не може бути пустим";
-				result.HasValidationErrors = true ;
-			} 
+				result.HasValidationErrors = true;
+			}
 
 			if (model.LastName.Trim().Length == 0) {
 				result.LastNameErrorMessage = "Прізвище не може бути пустим";
@@ -76,5 +115,6 @@ namespace M.Controllers {
 
 			return result;
 		}
+		#endregion
 	}
 }

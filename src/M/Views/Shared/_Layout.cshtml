@@ -25,14 +25,21 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<div class="nav navbar-nav">
-				<a class="nav-item ac-icon" href="#">
+				<div class="nav-item ac-icon" href="#">
 					<img class="img-responsive" style="display: inline-block" src="~/images/user-icon.svg" />
-					
-				</a>
+					@if (User.Identity.IsAuthenticated) {
+						<span>@User.Identity.Name</span>
+					}
+				</div>
 				<div style="display:block">
 					<a class="nav-item" href="@Url.Action("Index", "Home")">Блог</a>
 					<a class="nav-item" href="@Url.Action("Index", "AboutAuthor")">Про автора</a>
 					<a class="nav-item" href="@Url.Action("Index", "Contacts")">Контакти</a>
+					@if (User.Identity.IsAuthenticated) {
+						<a class="nav-item" href="@Url.Action("LogOff", "Account")">Вихід</a>
+					} else {
+						<a class="nav-item" href="@Url.Action("Login", "Account")">Вхід</a>
+					}
 				</div>
 			</div>
 		</div><!-- /.navbar-collapse -->
