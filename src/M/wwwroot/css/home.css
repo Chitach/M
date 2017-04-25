@@ -57,6 +57,7 @@
 
 .post-info img {
 	margin-bottom: 20px;
+	border-radius: 6px;
 }
 
 .additional-info {
@@ -115,9 +116,13 @@
 	color: #337ab7;
 }
 
-	.post-mini-info a:hover {
-		color: #d6b161;
-	}
+.post-mini-info a:hover {
+	color: #d6b161;
+}
+
+.post-mini-icon img {
+	border-radius: 6px;
+}
 
 .autor-avatar {
 	display: block;
@@ -135,10 +140,6 @@
 @media only screen and (min-width : 480px) {
 	body {
 		/*background-image: url('../images/background/main_background_480.jpg');*/
-	}
-
-	.posts-top-offset {
-		height: 50px;
 	}
 
 	.post-date {
