@@ -18,7 +18,7 @@ function tryToSubmitRegForm() {
 			},
 			error: function (error) {
 				if (error.status == 400) {
-					validateRegUserForm();
+					validateRegUserForm(formData);
 				} else {
 					alert("Вибачте сталася помилка. Адміністратор повідомлений про помилку і працює над її виправленням");
 				}
@@ -49,9 +49,9 @@ function tryToLogin() {
 			},
 			error: function (error) {
 				if (error.status == 401) {
-					$(formData).find("#Email").parent().find(".reg-form-error").html("Користувача з таким email не існує");
-				} else {
 					$(formData).find("#Password").parent().find(".reg-form-error").html("Пароль невірний");
+				} else {
+					$(formData).find("#Email").parent().find(".reg-form-error").html("Користувача з таким email не існує");
 				}
 			}
 		});
@@ -94,6 +94,7 @@ function validateRegUserForm(formData) {
 		$(formData).find("#PasswordConfirm").parent().find(".reg-form-error").html(errorMessage);
 	} else if (password.length < 8) {
 		errorMessage = "Пороль не повинен бути коротшим 8 символів";
+		errorMessage += "<br />Пароль повинен містити букви і цифри";
 		isRegUserFormValid = false;
 
 		$(formData).find("#Password").parent().find(".reg-form-error").html(errorMessage);

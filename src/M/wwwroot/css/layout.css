@@ -63,6 +63,7 @@ nav.def-nav {
 .navbar .nav-collapse {
 	margin: 7.5px auto;
 	padding: 0;
+	overflow-y: hidden;
 }
 
 .nav-item {
