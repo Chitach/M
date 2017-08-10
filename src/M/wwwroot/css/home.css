@@ -1,227 +1,149 @@
-﻿.post {
-	padding: 10px 20px 0 0;
-}
-
-.posts-top-offset {
-	height: 20px;
-}
-
-.post-date {
-	display: inline-block;
-	text-align: right;
-	font-family: 'Lucida Handwriting';
-	font-style: oblique;
-	font-size: 17px;
-	font-weight: bold;
-	background-color: antiquewhite;
-	padding: 5px;
-	margin-bottom: 10px;
-}
-
-.post-date-date {
-	display: inline-block;
-}
-
-.post-date-date-day {
-	display: inline-block;
-	margin-right: 2px;
-}
-
-.post-date-date-month {
-	display: inline-block;
-	margin-right: 2px;
-}
-
-.post-date-time {
-	display: inline-block;
-}
-
-.post-info {
-	display: block;
-	vertical-align: top;
-	font-family: 'Segoe Print';
-	line-height: 22px;
-}
-
-.post-info-title {
-}
-
-.post-info p {
-	font-size: 17px;
-}
-
-.post-info h3 {
-	margin-top: 0;
-	font-size: 26px;
-}
-
-.post-info img {
-	margin-bottom: 20px;
-	border-radius: 6px;
-}
-
-.additional-info {
-	display: block;
-	padding-top: 0;
-	font-family: 'Segoe Print';
-}
-
-.additional-info-section {
-	display: block;
-	width: 100%;
-	margin-bottom: 60px;
-}
-
-.additional-info-title {
-	font-size: 17px;
-}
-
-.post-mini-item {
-	display: block;
-	width: 100%;
-	margin-bottom: 30px;
-}
-
-.post-mini-icon {
-	display: inline-block;
-	vertical-align: top;
-	width: 30%;
-	margin-right: 20px;
-}
-
-.post-mini-info {
-	display: inline-block;
-	vertical-align: top;
-	width: 60%;
-}
-
-.post-mini-title {
-	display: block;
-	margin-bottom: 4px;
-	font-weight: bold;
-}
-
-.post-mini-date {
-	display: block;
-	font-family: 'Lucida Handwriting';
-}
-
-.additional-info a {
-	text-decoration: none;
-	color: inherit;
-	cursor: pointer;
-}
-
-.post-mini-info a {
-	color: #337ab7;
-}
-
-.post-mini-info a:hover {
-	color: #d6b161;
-}
-
-.post-mini-icon img {
-	border-radius: 6px;
-}
-
-.autor-avatar {
-	display: block;
-	height: 400px;
-}
-
-/* Custom, iPhone Retina */
+﻿/* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
-	body {
-		/*background-image: url('../images/background/main_background_320.jpg');*/
+	#main {
+		width: 100%;
+	}
+
+	#sitebar {
+		width: 100%;
 	}
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
-	body {
-		/*background-image: url('../images/background/main_background_480.jpg');*/
-	}
-
-	.post-date {
-		display: inline-block;
-		width: 90px;
-		height: 84px;
-		float: left;
-		margin-left: 0;
-		margin-bottom: 5px;
-		padding: 17px;
-		vertical-align: top;
-		text-align: center;
-		color: #fff;
-		background-color: #333;
-		font-family: 'Lucida Handwriting';
-		font-size: 16px;
-		font-style: normal;
-		-webkit-border-radius: 10px;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-		box-shadow: 4px 4px 1px #888;
-	}
-
-	.post-date-time {
-		display: block;
-		vertical-align: bottom;
-		margin-right: -13px;
-		margin-bottom: -13px;
-		float: right;
-		font-size: 11px;
-	}
-
-	.post-info {
-		margin-left: 115px;
-	}
-
-	.additional-info {
-		margin-left: 115px;
-	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	body {
-		/*background-image: url('../images/background/main_background_768.jpg');*/
+	#main {
+		width: 68%;
+		margin-right: 4%;
 	}
 
-	.post-date {
-		width: 126px;
-		height: 125px;
-		float: left;
-		font-size: 28px;
+	#sitebar {
+		width: 27%;
 	}
 
-	.post-date-time {
-		float: right;
-		font-size: 16px;
-	}
-
-	.post-info {
-		margin-left: 176px;
-	}
-
-	.additional-info {
-		margin-left: 176px;
-	}
+	/*.content {
+		margin: 0 auto;
+	}*/
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	body {
-		/*background-image: url('../images/background/main_background_992.jpg');*/
-	}
-
-	.additional-info {
-		margin-left: 0;
-	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	body {
-		/*background-image: url('../images/background/main_background_1200.jpg');*/
+}
+
+
+#main {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#sitebar {
+	display: inline-block;
+	vertical-align: top;
+	border: 2px solid rgb(248, 244, 244);
+	padding: 30px;
+	font-family: 'Segoe Print';
+}
+
+.post-image img {
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.post-title {
+	display: block;
+	font: bold 40px 'Playfair Display';
+	color: black;
+	text-align: center;
+}
+
+.post-info {
+	font: 17px 'Segoe Print';
+}
+
+.post-wave {
+	margin: 30px auto;
+	background: url('../images/delimeters/wave.png') center no-repeat;
+}
+
+.post-short-notes {
+	text-align: center;
+	font-family: 'Segoe Print';
+	font-size: 13px;
+	margin-top: 20px;
+}
+
+	.post-short-notes i {
+		color: red !important;
 	}
+
+.post-info p {
+	text-indent: 20px;
+}
+
+.post-desc {
+	padding: 0 1%;
+	margin-bottom: 40px;
+}
+
+.delimeter {
+	margin-bottom: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+	.delimeter hr {
+		flex: 1;
+	}
+	
+	.delimeter a {
+		text-decoration: none;
+	}
+
+.read-more {
+	padding: 5px 15px;
+	font-family: "Montserrat", sans-serif;
+	font-size: 15px;
+	border: 1px solid #f8f4f4;
+	background-color: #010101;
+	border-color: #010101;
+	color: #fff;
+}
+
+	.read-more:hover {
+		background-color: rgb(204, 51, 65);
+		cursor: pointer;
+	}
+
+.author-image img {
+	max-width: 100%;
+	min-width: 100%;
+	border-radius: 200px;
+	margin-bottom: 20px;
+}
+
+.about-me-title {
+	margin-top: 30px;
+	display: block;
+	text-align: center;
+}
+
+.content {
+	margin-top: 50px;
+}
+
+#sitebar hr {
+	width: 80%;
+}
+
+.about-me-desc {
+	display: block;
+	text-align: center;
 }

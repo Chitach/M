@@ -1,4 +1,4 @@
-﻿@model M.Models.HomeViewModels.HomeViewModel
+﻿@model M.Models.ViewModels.Home.HomeViewModel
 
 @section Header {
 	<link href="~/css/home.css" rel="stylesheet" />
@@ -7,61 +7,50 @@
 }
 
 @{ViewBag.Title = "Поки просто блог"; }
-<div class="row">
-	<div class="col-md-8">
-		<div class="posts-top-offset"></div>
+
+<div class="container content conteiner-side-margin">
+	<section id="main">
 		@foreach (var post in Model.Posts) {
-			<div class="post" id="@post.Id">
-				<div class="post-date">
-					<div class="post-date-date">
-						<div class="post-date-date-day">@post.PostingTime.Day</div><div class="post-date-date-month">@post.GetPostingMonth()</div>
-					</div>
-					<div class="post-date-time">
-						@post.GetPostingTime()
-					</div>
-				</div>
-				<div class="post-info">
-					@if (!string.IsNullOrEmpty(post.ImageUrl)) {
-						<img class="full-width" src="@post.ImageUrl" />
-					}
-					<h3 class="post-info-title">@post.Title</h3>
-					<br />
-					<p>@Html.Raw(post.Text)</p>
-				</div>
-				<hr />
+			<div class="post-image img-responsive">
+				<img src="@post.ImageUrl" />
 			</div>
-			}
-	</div>
-	<div class="col-md-4">
-		<div class="posts-top-offset"></div>
-		<div class="additional-info">
-			@{int miniPostsCount = Model.Posts.Count >= 3 ? 3 : Model.Posts.Count;}
-			<div class="last-posts">
-				<p class="additional-info-title">Останні пости</p>
-				<hr />
-				@for (int i = 0; i < miniPostsCount; i++) {
-					var post = Model.Posts[i];
-					<div class="post-mini-item">
-						<div class="post-mini-icon">
-							@if (!string.IsNullOrEmpty(post.ImageUrl)) {
-								<a href="#@post.Id" class="scroll-to-post">
-									<img class="full-width" src="@post.ImageUrl" />
-								</a>
-							} else {
-								<a href="#@post.Id" class="scroll-to-post">
-									<img class="full-width" src="/images/no-image.png" />
-								</a>
-							}
-						</div>
-						<div class="post-mini-info">
-							<a href="#@post.Id" class="scroll-to-post">
-								<div class="post-mini-title">@post.Title </div>
-							</a>
-							<div class="post-mini-date">@post.PostingTime.Day @post.GetPostingMonth(), @post.GetPostingTime() </div>
-						</div>
-					</div>
-				}
+			<div class="post-desc">
+				<span class="post-title">@post.Title</span>
+				<div class="post-short-notes">
+					<span class="text-nowrap">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+						@post.PostingTime.Day @post.GetPostingMonth() @post.PostingTime.Year<span>р</span> @post.GetPostingTime()
+					</span>
+					&nbsp;
+					<span class="text-nowrap">
+						<i class="fa fa-comment-o" aria-hidden="true"></i> 5 коментарів
+					</span>
+				</div>
+				<div class="post-wave"><span><br /></span></div>
+				<span class="post-info">@Html.Raw(post.Text.Substring(0, post.Text.IndexOf(".", 150)) + "...")</span>
 			</div>
+			<div class="delimeter">
+				<hr style="height:2px;">
+				<a href="@Url.Action("index", "detail", new { postId = @post.Id })">
+					<div class="read-more">
+						<span>ЧИТАТИ ДАЛІ</span>
+					</div>
+				</a>
+				<hr style="height:2px;">
+			</div>
+		}
+	</section>
+
+	<section id="sitebar">
+		<span class="about-me-title">ПРО МЕНЕ</span>
+		<hr />
+		<div class="img-responsive author-image">
+			<img src="~/images/author-image.jpg" />
 		</div>
-	</div>
+		<span class="about-me-desc">
+			<h4><b>TAYLOR WONG</b></h4>
+			Architecture Designer
+			The Japanese call it Hanakotoba, and King Charles II brought it to Sweden from Persia in the 17th century
+		</span>
+	</section>
 </div>

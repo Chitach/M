@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using M.Data;
-using M.Models.HomeViewModels;
+using M.Models.ViewModels.Home;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using M.Models;

@@ -1,89 +1,60 @@
-﻿.full-width {
-	position: relative;
-	width: 100%;
-	max-width: 100%;
-}
-
-.left-menu {
-	border: 3px solid red;
-}
-
-/* Custom, iPhone Retina */
+﻿/* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
-	body {
-		/*background-image: url('../images/background/main_background_320.jpg');*/
-	}
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
-	body {
-		/*background-image: url('../images/background/main_background_480.jpg');*/
+	.conteiner-side-margin {
+		margin: 0 11%;
 	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	body {
-		/*background-image: url('../images/background/main_background_768.jpg');*/
-	}
-
-	.nav-item {
-		display: inline-block !important;
-	}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	body {
-		/*background-image: url('../images/background/main_background_992.jpg');*/
-	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	body {
-		/*background-image: url('../images/background/main_background_1200.jpg');*/
-	}
 }
 
-
-/*NAVBAR*/
-.nav {
-	width: 100%;
+.menu-list {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
 	text-align: center;
-	margin: 0 !important;
+	border-top: 1px solid rgb(248, 244, 244);
+	border-bottom: 1px solid rgb(248, 244, 244);
+	padding: 15px 0;
 }
 
-nav.def-nav {
-	background-color: #fff !important;
-	border: none !important;
-}
+	.menu-list li {
+		margin-right: 35px;
+		display: inline;
+	}
 
-.navbar .nav-collapse {
-	margin: 7.5px auto;
-	padding: 0;
-	overflow-y: hidden;
-}
 
-.nav-item {
-	display: block;
-	padding-left: 40px;
-	padding-top: 10px;
-	font-family: segoe print;
-	text-decoration: none !important;
-	color: steelblue;
-	font-size: 22px;
-	font-weight: bold;
-}
+		.menu-list li:last-child {
+			margin-right: 0;
+		}
 
-.ac-icon {
-	display: block;
-	font-family: Segoe Print;
-	font-size: 17px;
-	color: orangered;
-	font-style: normal;
-	font-stretch: normal;
-	font-weight: inherit;
-}
+		.menu-list li a {
+			text-decoration: none;
+			font-size: 18px;
+			letter-spacing: .05em;
+			color: rgba(0,0,0,.7);
+			font-weight: 700;
+			font-family: Playfair Display;
+		}
 
+			.menu-list li a:hover {
+				color: #333;
+				cursor: pointer;
+			}
+#header1 {
+	margin-top: 25px;
+	margin-bottom: 15px;
+}

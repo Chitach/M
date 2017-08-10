@@ -1,0 +1,46 @@
+﻿@model M.Models.ViewModels.Detail.DetailViewModel
+
+@section Header {
+	<link href="~/css/home.css" rel="stylesheet" />
+	<script src="~/lib/jquery-ui/jquery-ui.js"></script>
+	<script src="~/js/detail.js"></script>
+}
+
+@{ViewBag.Title = "Поки просто блог"; }
+
+<div class="container content conteiner-side-margin">
+	<section id="main">
+		@{ var post = Model.Post; }
+		<div class="post-image img-responsive">
+			<img src="@post.ImageUrl" />
+		</div>
+		<div class="post-desc">
+			<span class="post-title">@post.Title</span>
+			<div class="post-short-notes">
+				<span class="text-nowrap">
+					<i class="fa fa-clock-o" aria-hidden="true"></i>
+					@post.PostingTime.Day @post.GetPostingMonth() @post.PostingTime.Year<span>р</span> @post.GetPostingTime()
+				</span>
+				&nbsp;
+				<span class="text-nowrap">
+					<i class="fa fa-comment-o" aria-hidden="true"></i> 5 коментарів
+				</span>
+			</div>
+			<div class="post-wave"><span><br /></span></div>
+			<span class="post-info">@Html.Raw(post.Text)</span>
+		</div>
+	</section>
+
+	<section id="sitebar">
+		<span class="about-me-title">ПРО МЕНЕ</span>
+		<hr />
+		<div class="img-responsive author-image">
+			<img src="~/images/author-image.jpg" />
+		</div>
+		<span class="about-me-desc">
+			<h4><b>TAYLOR WONG</b></h4>
+			Architecture Designer
+			The Japanese call it Hanakotoba, and King Charles II brought it to Sweden from Persia in the 17th century
+		</span>
+	</section>
+</div>
