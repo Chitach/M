@@ -5,7 +5,7 @@
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
 	.conteiner-side-margin {
-		margin: 0 11%;
+		margin: 0 8%;
 	}
 }
 
@@ -57,4 +57,8 @@
 #header1 {
 	margin-top: 25px;
 	margin-bottom: 15px;
+}
+
+.conteiner-side-margin {
+	width: auto !important;
 }

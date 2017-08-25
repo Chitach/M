@@ -15,14 +15,6 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	#main {
-		width: 68%;
-		margin-right: 4%;
-	}
-
-	#sitebar {
-		width: 27%;
-	}
 
 	/*.content {
 		margin: 0 auto;
@@ -31,6 +23,14 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+	#main {
+		width: 68%;
+		margin-right: 4%;
+	}
+
+	#sitebar {
+		width: 27%;
+	}
 }
 
 /* Large Devices, Wide Screens */
@@ -102,7 +102,7 @@
 	.delimeter hr {
 		flex: 1;
 	}
-	
+
 	.delimeter a {
 		text-decoration: none;
 	}
@@ -110,7 +110,7 @@
 .read-more {
 	padding: 5px 15px;
 	font-family: "Montserrat", sans-serif;
-	font-size: 15px;
+	font-size: 20px;
 	border: 1px solid #f8f4f4;
 	background-color: #010101;
 	border-color: #010101;
@@ -122,12 +122,17 @@
 		cursor: pointer;
 	}
 
-.author-image img {
-	max-width: 100%;
-	min-width: 100%;
-	border-radius: 200px;
-	margin-bottom: 20px;
+.author-image {
+	max-width: 340px;
+	margin: auto;
 }
+
+	.author-image img {
+		max-width: 100%;
+		min-width: 100%;
+		border-radius: 500px;
+		margin-bottom: 20px;
+	}
 
 .about-me-title {
 	margin-top: 30px;
