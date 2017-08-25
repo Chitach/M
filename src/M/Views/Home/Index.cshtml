@@ -27,7 +27,7 @@
 					</span>
 				</div>
 				<div class="post-wave"><span><br /></span></div>
-				<span class="post-info">@Html.Raw(post.Text.Substring(0, post.Text.IndexOf(".", 150)) + "...")</span>
+				<span class="post-info">@Html.Raw(post.GetShortText())</span>
 			</div>
 			<div class="delimeter">
 				<hr style="height:2px;">
@@ -38,7 +38,7 @@
 				</a>
 				<hr style="height:2px;">
 			</div>
-		}
+					}
 	</section>
 
 	<section id="sitebar">
