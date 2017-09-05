@@ -1,58 +1,33 @@
 ﻿.user-register {
+	margin-top: 50px;
 	text-align: center;
-	font-family: 'Segoe Print';
-}
-
-.reg-form-label {
-	display: block;
-	font-size: larger;
-}
-
-.reg-form-control {
-	display: block;
-	margin: auto;
 }
 
 .reg-form-group {
-	margin-bottom: 20px;
+	margin-bottom: 15px;
+}
+
+.reg-form-group:first-child {
+	margin-top: 50px;
+}
+
+.reg-form-hint {
+	display: block;
+	font-size: 13px;
+	font-family: sans-serif;
 }
 
 .reg-form-error {
-	font-size: 12px;
-	color: #f00;
-}
-
-.user-login {
-	text-align: center;
-	font-family: 'Segoe Print';
-}
-
-.login-form-label {
 	display: block;
-	font-size: larger;
+	font-size: 13px;
+	font-family: sans-serif;
+	color: red;
 }
 
-.login-form-control {
-	display: block;
-	margin: auto;
+.reg-form-submit-button {
+	margin: 30px auto;
 }
 
-.login-form-group {
-	margin-bottom: 20px;
-}
-
-.login-form-error {
-	font-size: 12px;
-	color: #f00;
-}
-
-.login-register {
-	margin-top: 60px;
-	padding: 0;
-	text-align: center;
-	color: steelblue;
-	font-size: 17px;
-}
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
 	body {
