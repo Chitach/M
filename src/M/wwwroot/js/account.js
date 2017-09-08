@@ -1,10 +1,7 @@
 ﻿var isRegUserFormValid = true;
+var formData;
 
 function tryToSubmitRegForm() {
-	var formData = $("#Reg_Form");
-
-	validateRegUserForm(formData);
-
 	if (isRegUserFormValid) {
 		var data = objectifyForm(formData.serializeArray());
 
@@ -26,6 +23,11 @@ function tryToSubmitRegForm() {
 		});
 	}
 }
+
+$(document).ready(function () {
+	formData = $("#Reg_Form");
+	$(".reg-form-control").on("change", validateRegUserForm);
+});
 
 function tryToLogin() {
 	var formData = $("#Login_Form");
@@ -58,7 +60,7 @@ function tryToLogin() {
 	}
 }
 
-function validateRegUserForm(formData) {
+function validateRegUserForm() {
 	var firstName = $(formData).find("#FirstName").val();
 	var lastName = $(formData).find("#LastName").val();
 	var email = $(formData).find("#Email").val();
@@ -68,48 +70,44 @@ function validateRegUserForm(formData) {
 	var errorMessage = "";
 	isRegUserFormValid = true;
 
-	if (firstName.trim().length == 0) {
-		errorMessage = "Ім\'я не може бути пустим";
+	errorMessage = "";
+	if (firstName.trim().length < 2) {
+		errorMessage = "Надто коротке ім\'я";
 		isRegUserFormValid = false;
 	} 
 	$(formData).find("#FirstName").parent().find(".reg-form-error").html(errorMessage);
 
-	if (lastName.trim().length == 0) {
-		errorMessage = "Прізвище не може бути пустим";
+	errorMessage = "";
+	if (lastName.trim().length < 2) {
+		errorMessage = "Надто коротке прізвище";
 		isRegUserFormValid = false;
 	}
 	$(formData).find("#LastName").parent().find(".reg-form-error").html(errorMessage);
 
+	errorMessage = "";
 	if (!validateEmail(email)) {
 		errorMessage = "Введіть коректний email. Приклад: Example@gmail.com";
 		isRegUserFormValid = false;
 	}
 	$(formData).find("#Email").parent().find(".reg-form-error").html(errorMessage);
 
+	errorMessage = "";
 	if (password != passwordConfirm) {
 		errorMessage = "Паролі не співпадають";
 		isRegUserFormValid = false;
-
-		$(formData).find("#Password").parent().find(".reg-form-error").html(errorMessage);
-		$(formData).find("#PasswordConfirm").parent().find(".reg-form-error").html(errorMessage);
 	} else if (password.length < 8) {
 		errorMessage = "Пороль не повинен бути коротшим 8 символів";
-		errorMessage += "<br />Пароль повинен містити букви і цифри";
 		isRegUserFormValid = false;
-
-		$(formData).find("#Password").parent().find(".reg-form-error").html(errorMessage);
-		$(formData).find("#PasswordConfirm").parent().find(".reg-form-error").html(errorMessage);
 	} else {
 		var reLetter = /.*[a-z]+.*$/i;
 		var reDigit = /.*[0-9]+$.*/i;
 		if (!reLetter.test(password) || !reDigit.test(password)) {
 			errorMessage = "Пароль повинен містити букви і цифри";
 			isRegUserFormValid = false;
-
-			$(formData).find("#Password").parent().find(".reg-form-error").html(errorMessage);
-			$(formData).find("#PasswordConfirm").parent().find(".reg-form-error").html(errorMessage);
 		}
 	}
+	$(formData).find("#Password").parent().find(".reg-form-error").html(errorMessage);
+	$(formData).find("#PasswordConfirm").parent().find(".reg-form-error").html(errorMessage);
 
 }
 

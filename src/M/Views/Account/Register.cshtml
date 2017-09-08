@@ -10,30 +10,32 @@
 	<h2>Реєстрація нового користувача</h2>
 	<form class="reg-form" method="post" id="Reg_Form">
 		<div class="form-group-lg reg-form-group" id="first-name-group">
-			<span class="reg-form-label">Ім'я</span>
-			<input type="text" class="input-lg reg-form-control" id="FirstName" name="FirstName" />
+			<span class="reg-form-hint">не менше 2 символів</span>
+			<input type="text" class="input-lg reg-form-control" placeholder="Ім'я" id="FirstName" name="FirstName" />
 			<span class="reg-form-error"></span>
 		</div>
 		<div class="form-group-lg reg-form-group" id="last-name-group">
-			<span class="reg-form-label">Прізвище</span>
-			<input type="text" class="input-lg reg-form-control" id="LastName" name="LastName" />
+			<span class="reg-form-hint">не менше 2 символів</span>
+			<input type="text" class="input-lg reg-form-control" placeholder="Прізвище" id="LastName" name="LastName" />
 			<span class="reg-form-error"></span>
 		</div>
 		<div class="form-group-lg reg-form-group" id="email-name-group">
-			<span class="reg-form-label">Email</span>
-			<input type="email" class="input-lg reg-form-control"  id="Email" name="Email" />
+			<span class="reg-form-hint">email</span>
+			<input type="email" class="input-lg reg-form-control" placeholder="Example@gmail.com" id="Email" name="Email" />
 			<span class="reg-form-error"></span>
 		</div>
 		<div class="form-group-lg reg-form-group" id="password-name-group" >
-			<span class="reg-form-label">Пароль</span>
-			<input type="password" class="input-lg reg-form-control"  id="Password" name="Password" />
+			<span class="reg-form-hint">не менше 8 символів, букви + цифри</span>
+			<input type="password" class="input-lg reg-form-control"  placeholder="Пароль" id="Password" name="Password" />
 			<span class="reg-form-error"></span>
 		</div>
 		<div class="form-group-lg reg-form-group" id="password-confirm-name-group">
-			<span class="reg-form-label">Підтвердіть пароль</span>
-			<input type="password" class="input-lg reg-form-control"  id="PasswordConfirm" name="PasswordConfirm" />
+			<span class="reg-form-hint">не менше 8 символів, букви + цифри</span>
+			<input type="password" class="input-lg reg-form-control"  placeholder="Пароль ще раз" id="PasswordConfirm" name="PasswordConfirm" />
 			<span class="reg-form-error"></span>
 		</div>
-		<button class="btn-lg btn-primary reg-form-control" type="button" onclick="tryToSubmitRegForm()" style="font-size:larger">Зареєструватися</button>
+		<div class="reg-form-submit-button">
+			<button class="btn-lg btn-primary reg-form-control" type="button" onclick="tryToSubmitRegForm()" style="font-size:larger">Зареєструватися</button>
+		</div>
 	</form>
 </div>
