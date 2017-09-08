@@ -25,9 +25,8 @@ namespace M.Controllers {
 
 		[HttpPost]
 		public async Task<IActionResult> Register(RegisterViewModel model) {
-			UserRegisterValidationResult validationResults = ValidateUserRegisterModel(model);
 
-			if (!validationResults.HasValidationErrors) {
+			if (IsRegModelValid(model)) {
 				User user = new User { Email = model.Email, UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName };
 				// add user
 				var result = await _userManager.CreateAsync(user, model.Password);
@@ -80,40 +79,32 @@ namespace M.Controllers {
 		#endregion
 
 		#region private helpers
-		private UserRegisterValidationResult ValidateUserRegisterModel(RegisterViewModel model) {
+		private bool IsRegModelValid(RegisterViewModel model) {
 			UserRegisterValidationResult result = new UserRegisterValidationResult();
 
-			if (model.FirstName.Trim().Length == 0) {
-				result.FirstNameErrorMessage = "Ім\'я не може бути пустим";
-				result.HasValidationErrors = true;
+			if (model.FirstName?.Trim()?.Length < 2) {
+				return false;
 			}
 
-			if (model.LastName.Trim().Length == 0) {
-				result.LastNameErrorMessage = "Прізвище не може бути пустим";
-				result.HasValidationErrors = true;
+			if (model.LastName?.Trim()?.Length < 2) {
+				return false;
 			}
 
-			if (!Regex.IsMatch(model.Email, @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", RegexOptions.IgnoreCase)) {
-				result.EmailErrorMessage = "Введіть коректний email. Приклад: Example@gmail.com";
-				result.HasValidationErrors = true;
+			if (string.IsNullOrEmpty(model.Email) || !Regex.IsMatch(model.Email, @"^(([^<>()\[\]\\.,;:\s@]+ (\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$", RegexOptions.IgnoreCase)) {
+				return false;
 			}
 
-			if (model.Password != model.PasswordConfirm) {
-				result.PasswordErrorMessage = "Паролі не співпадають";
-				result.HasValidationErrors = true;
-			} else if (model.Password.Length < 8) {
-				result.PasswordErrorMessage = "Пороль не повинен бути коротшим 8 символів";
-				result.HasValidationErrors = true;
+			if (model.Password != model.PasswordConfirm || model.Password?.Length < 8) {
+				return false;
 			} else {
 				string reLetter = @"[a-z]";
 				string reDigit = @"[0-9]";
-				if (!Regex.IsMatch(model.Password, reLetter, RegexOptions.IgnoreCase) || !Regex.IsMatch(model.Password, reDigit, RegexOptions.IgnoreCase)) {
-					result.PasswordErrorMessage = "Пароль повинен містити букви і цифри";
-					result.HasValidationErrors = true;
+				if (string.IsNullOrEmpty(model.Password) || (!Regex.IsMatch(model.Password, reLetter, RegexOptions.IgnoreCase) || !Regex.IsMatch(model.Password, reDigit, RegexOptions.IgnoreCase))) {
+					return false;
 				}
 			}
 
-			return result;
+			return true;
 		}
 		#endregion
 	}

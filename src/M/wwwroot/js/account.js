@@ -1,9 +1,11 @@
 ﻿var isRegUserFormValid = true;
-var formData;
 
 function tryToSubmitRegForm() {
-	if (isRegUserFormValid) {
-		var data = objectifyForm(formData.serializeArray());
+	var form = $("#Reg_Form");
+	validateRegUserForm(form);
+
+	if (true) {
+		var data = objectifyForm(form.serializeArray());
 
 		$.ajax({
 			url: "http://localhost:64666/account/register",
@@ -25,8 +27,6 @@ function tryToSubmitRegForm() {
 }
 
 $(document).ready(function () {
-	formData = $("#Reg_Form");
-	$(".reg-form-control").on("change", validateRegUserForm);
 });
 
 function tryToLogin() {
@@ -60,7 +60,7 @@ function tryToLogin() {
 	}
 }
 
-function validateRegUserForm() {
+function validateRegUserForm(formData) {
 	var firstName = $(formData).find("#FirstName").val();
 	var lastName = $(formData).find("#LastName").val();
 	var email = $(formData).find("#Email").val();
