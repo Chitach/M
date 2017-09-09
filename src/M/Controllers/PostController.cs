@@ -56,11 +56,11 @@ namespace M.Controllers {
 		}
 
 		[Route("edit")]
-		public IActionResult EditPost(int id) {
-			Post post = _db.Posts.FirstOrDefault(p => p.Id == id);
+		public IActionResult EditPost(int postId) {
+			Post post = _db.Posts.FirstOrDefault(p => p.Id == postId);
 
 			if (post == null) {
-				return Content($"There is no post with postId {id}");
+				return Content($"There is no post with postId {postId}");
 			}
 
 			return View(post);
@@ -106,6 +106,14 @@ namespace M.Controllers {
 			_db.SaveChanges();
 
 			return RedirectToAction("Index", "Home");
+		}
+
+		[Route("delete")]
+		public void DeletePost(int postId) {
+			Post post = _db.Posts.FirstOrDefault(p => p.Id == postId);
+
+			_db.Posts.Remove(post);
+			_db.SaveChanges();
 		}
 	}
 }
