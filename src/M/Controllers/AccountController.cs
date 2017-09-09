@@ -2,7 +2,10 @@
 using M.Models.AccountViewModels;
 using M.Models.ValidationResultModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -10,10 +13,12 @@ namespace M.Controllers {
 	public class AccountController : Controller {
 		private readonly UserManager<User> _userManager;
 		private readonly SignInManager<User> _signInManager;
+		private readonly RoleManager<IdentityRole> _roleManager;
 
-		public AccountController(UserManager<User> userManager, SignInManager<User> signInManager) {
+		public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager) {
 			_userManager = userManager;
 			_signInManager = signInManager;
+			_roleManager = roleManager;
 		}
 
 		#region Register
@@ -25,19 +30,19 @@ namespace M.Controllers {
 
 		[HttpPost]
 		public async Task<IActionResult> Register(RegisterViewModel model) {
-
 			if (IsRegModelValid(model)) {
 				User user = new User { Email = model.Email, UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName };
-				// add user
 				var result = await _userManager.CreateAsync(user, model.Password);
+
 				if (result.Succeeded) {
+					await _userManager.AddToRoleAsync(user, "user");
+
 					// set cookies
 					await _signInManager.SignInAsync(user, false);
 
 					return Content("Success");
 				}
 			}
-
 			return BadRequest("Validation error");
 		}
 		#endregion

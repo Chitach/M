@@ -1,8 +1,11 @@
 ﻿using M.Configuration;
 using M.Data;
 using M.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using System;
@@ -11,15 +14,19 @@ using System.Linq;
 
 namespace M.Controllers {
 	[Route("[controller]")]
+	[Authorize(Roles = "admin")]
 	public class PostController : Controller {
 		private IHostingEnvironment _env = null;
 		private AppConfiguration _configuration = null;
 		private MDbContext _db = null;
 
-		public PostController(MDbContext db, AppConfiguration appConfiguration, IHostingEnvironment env) {
+		private readonly RoleManager<IdentityRole> _roleManager;
+
+		public PostController(MDbContext db, AppConfiguration appConfiguration, IHostingEnvironment env, RoleManager<IdentityRole> roleManager) {
 			_db = db;
 			_env = env;
 			_configuration = appConfiguration;
+			_roleManager = roleManager;
 		}
 
 		[Route("add")]

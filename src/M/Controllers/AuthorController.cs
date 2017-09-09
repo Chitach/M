@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 namespace M.Controllers {
-	public class AboutAuthorController : Controller {
+	public class AuthorController : Controller {
 		[Route("author")]
 		public IActionResult Index() {
 			return View();

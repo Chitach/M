@@ -18,10 +18,10 @@
 		<div class="container">
 			<div id="logo">
 				<h1>
-					<a href="http://trendy-beautytemplates.blogspot.com/" style="display: block">
+					<a href="@Url.Action("Index", "Home")" style="display: block">
 						<center>
 							@*Viner Hand ITC font*@
-							<img alt="Trendy Blogger Template" height="75px;" id="Header1_headerimg" src="~/images/main-logo.PNG" width="280px; ">
+							<img alt="Logo" height="75px;" id="Header1_headerimg" src="~/images/main-logo.PNG" width="280px; ">
 						</center>
 					</a>
 				</h1>
@@ -30,11 +30,21 @@
 	</div>
 	<div class="nav container conteiner-side-margin" style="padding:0 15px;">
 		<ul class="menu-list">
-			<li><a>БЛОГ</a></li>
-			<li><a>ПРО АВТОРА</a></li>
-			<li><a>КОНТАКТИ</a></li>
-			<li><a>ВХІД</a></li>
+			<li><a href="@Url.Action("Index", "Home")">БЛОГ</a></li>
+			<li><a href="@Url.Action("Index", "Author")">ПРО АВТОРА</a></li>
+			<li><a href="@Url.Action("Index", "Contacts")">КОНТАКТИ</a></li>
+			@{ if (User.Identity.IsAuthenticated) {
+					<li><a href="@Url.Action("LogOff", "Account")">ВИХІД</a></li>
+				} else {
+					<li><a href="@Url.Action("Login", "Account")">ВХІД</a></li>
+				}
+			}
 		</ul>
+	</div>
+	<div class="authorized-user-email container conteiner-side-margin">
+		@if (User.Identity.IsAuthenticated) {
+			<span class="user-email-label">Ви увійшли як</span> <span class="user-email">@User.Identity.Name</span>
+		}
 	</div>
 	@RenderBody()
 </body>

@@ -39,7 +39,14 @@ namespace M {
 			services.AddDbContext<MDbContext>(options =>
 				options.UseSqlServer(connectionString));
 
-			services.AddIdentity<User, IdentityRole>()
+			services.AddIdentity<User, IdentityRole>(options =>
+			{
+				options.Password.RequiredLength = 8;
+				options.Password.RequireLowercase = false;
+				options.Password.RequireUppercase = false;
+				options.Password.RequireNonAlphanumeric = false;
+				options.Password.RequireDigit = true;
+			})
 				.AddEntityFrameworkStores<MDbContext>();
 
 			services.AddMvc();

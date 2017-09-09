@@ -54,6 +54,7 @@
 				color: #333;
 				cursor: pointer;
 			}
+
 #header1 {
 	margin-top: 25px;
 	margin-bottom: 15px;
@@ -67,3 +68,16 @@
 .content {
 	margin-top: 50px;
 }
+
+.authorized-user-email {
+	font-family: Playfair Display;
+	margin-top: 15px;
+}
+
+	.authorized-user-email .user-email {
+		color: red;
+	}
+
+	.authorized-user-email .user-email-label {
+		font-weight: bold;
+	}

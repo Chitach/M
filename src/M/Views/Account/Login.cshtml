@@ -8,25 +8,24 @@
 	var returnUrl = "@Model.ReturnUrl";
 </script>
 <div class="user-login">
-	<h2>Увійти</h2>
+	<h2>Вхід</h2>
 	<form class="login-form" method="post" id="Login_Form">
 		<div class="form-group-lg login-form-group" id="email-name-group">
-			<span class="login-form-label">Email</span>
-			<input type="email" class="input-lg login-form-control" id="Email" name="Email" />
+			<input type="email" class="input-lg login-form-control" placeholder="Example@com.ua" id="Email" name="Email" />
 			<span class="reg-form-error"></span>
 		</div>
 		<div class="form-group-lg login-form-group" id="password-name-group">
-			<span class="login-form-label">Пароль</span>
-			<input type="password" class="input-lg login-form-control" id="Password" name="Password" />
+			<input type="password" class="input-lg login-form-control" placeholder="Пароль" id="Password" name="Password" />
 			<span class="login-form-error"></span>
 		</div>
 		<div class="form-group-lg login-form-group" id="remember-name-group">
-			<span class="login-form-label">Запам'ятати мене</span>
+			<span class="login-form-label" style="font-size:larger">Запам'ятати мене</span>
 			<input type="checkbox" id="RememberMe" name="RememberMe" value="true" />
 		</div>
 		<button class="btn-lg btn-primary login-form-control" type="button" onclick="tryToLogin()" style="font-size:larger">Увійти</button>
+		<br /><br />
 		<div class="form-group-lg login-form-group login-register" id="register-name-group">
-			<a href="@Url.Action("Register", "Account")">Зареєструватися</a>
+			<a href="@Url.Action("Register", "Account")" style="font-size:larger">Реєстрація</a>
 		</div>
 	</form>
 </div>

@@ -4,7 +4,7 @@ function tryToSubmitRegForm() {
 	var form = $("#Reg_Form");
 	validateRegUserForm(form);
 
-	if (true) {
+	if (isRegUserFormValid) {
 		var data = objectifyForm(form.serializeArray());
 
 		$.ajax({
