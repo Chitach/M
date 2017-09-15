@@ -22,7 +22,7 @@ namespace M.Controllers {
 		public async Task<IActionResult> Index(int postId) {
 			DetailViewModel model = new DetailViewModel();
 
-			model.Post = _db.Posts.FirstOrDefault(p => p.Id == postId);
+			model.Post = _db.Posts.Include(x => x.Comments).ThenInclude(x => x.User).FirstOrDefault(p => p.Id == postId);
 
 			if (model.Post == null) {
 				return RedirectToAction("index", "home");

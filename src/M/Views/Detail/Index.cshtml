@@ -1,7 +1,9 @@
 ﻿@model M.Models.ViewModels.Detail.DetailViewModel
+@using M.Utilities.Providers
 
 @section Header {
 	<link href="~/css/home.css" rel="stylesheet" />
+	<link href="~/css/detail.css" rel="stylesheet" />
 	<script src="~/lib/jquery-ui/jquery-ui.js"></script>
 	<script src="~/js/detail.js"></script>
 }
@@ -19,7 +21,7 @@
 			<div class="post-short-notes">
 				<span class="text-nowrap">
 					<i class="fa fa-clock-o" aria-hidden="true"></i>
-					@post.PostingTime.Day @post.GetPostingMonth() @post.PostingTime.Year<span>р</span> @post.GetPostingTime()
+					@post.PostingTime.Day @MDateFormatsProvider.GetUkrMonth(post.PostingTime) @post.PostingTime.Year<span>р</span> @MDateFormatsProvider.GetUkrTime(post.PostingTime)
 				</span>
 				&nbsp;
 				<span class="text-nowrap">
@@ -29,6 +31,20 @@
 			<div class="post-wave"><span><br /></span></div>
 			<span class="post-info">@Html.Raw(post.Text)</span>
 		</div>
+		<div class="comments-udel"></div>
+		<div class="comments">
+			<h3>Коментарі:</h3>
+			<br />
+			@foreach (var comment in post.Comments) {
+				<div class="comment-title-block">
+					<span class="comment-email"><i class="fa fa-user" aria-hidden="true"></i> @comment.User.Email</span>
+					<span class="comment-date"> <i class="fa fa-clock-o" aria-hidden="true"></i> @comment.CreatedTime.Day  @MDateFormatsProvider.GetUkrMonth(comment.CreatedTime) в @MDateFormatsProvider.GetUkrTime(comment.CreatedTime)</span>
+				</div>
+				<span class="comment-text">@comment.Text</span>
+				<hr />
+			}
+		</div>
+		<div class="comments-udel"></div>
 	</section>
 
 	<section id="sitebar">

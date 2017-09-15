@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace M.Data {
 	public class MDbContext : IdentityDbContext<User> {
 		public DbSet<Post> Posts { get; set; }
+		public DbSet<Comment> Comments { get; set; }
 
 		public MDbContext(DbContextOptions<MDbContext> options)
 			: base(options) 

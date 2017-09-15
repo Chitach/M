@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Content Include="wwwroot\css\account.css" />
+    <Content Include="wwwroot\css\detail.css" />
     <Content Include="wwwroot\css\post.css" />
     <Content Include="wwwroot\images\1491446721_user_male4.svg" />
     <Content Include="wwwroot\images\postimages\1491446721_user_male4.svg" />

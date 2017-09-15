@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace M.Models {
@@ -15,43 +16,8 @@ namespace M.Models {
 		public string Text { get; set; }
 		public string ImageUrl { get; set; }
 		public DateTime PostingTime { get; set; }
+		public ICollection<Comment> Comments { get; set; }
 		#endregion
-
-		public string GetPostingMonth() {
-			string month = "";
-			switch (PostingTime.Month) {
-				case 1: { month = "Січня"; break; }
-				case 2: { month = "Лютого"; break; }
-				case 3: { month = "Березня"; break; }
-				case 4: { month = "Квітня"; break; }
-				case 5: { month = "Травня"; break; }
-				case 6: { month = "Червня"; break; }
-				case 7: { month = "Липня"; break; }
-				case 8: { month = "Серпня"; break; }
-				case 9: { month = "Вересня"; break; }
-				case 10: { month = "Жовтня"; break; }
-				case 11: { month = "Листопада"; break; }
-				case 12: { month = "Грудня"; break; }
-			}
-
-			return month;
-		}
-
-		public string GetPostingTime() {
-			StringBuilder sb = new StringBuilder();
-			if (PostingTime.Hour > 9) {
-				sb.Append($"{PostingTime.Hour}");
-			} else {
-				sb.Append($"0{PostingTime.Hour}");
-			}
-			if (PostingTime.Minute > 9) {
-				sb.Append($":{PostingTime.Minute}");
-			} else {
-				sb.Append($":0{PostingTime.Minute}");
-			}
-
-			return sb.ToString();
-		}
 
 		public string GetShortText() {
 			if (Text.Length < ConstDefaultShortPostTextLength) {

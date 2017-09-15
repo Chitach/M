@@ -22,7 +22,7 @@ namespace M.Controllers {
 		public async Task<IActionResult> Index() {
 			HomeViewModel model = new HomeViewModel();
 
-			model.Posts = await _db.Posts.OrderByDescending(p => p.PostingTime).ToListAsync();
+			model.Posts = await _db.Posts.Include(x => x.Comments).OrderByDescending(p => p.PostingTime).ToListAsync();
 
 			return View(model);
 		}

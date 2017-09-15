@@ -1,0 +1,50 @@
+﻿.comments {
+	font: bold 20px 'Playfair Display';
+}
+
+.comments-udel {
+	height: 20px;
+	width: 100%;
+	background-color: gainsboro;
+}
+
+.comments-udel:last-child {
+	margin-bottom: 30px;
+}
+
+.comment-text {
+	display: block;
+	padding-left: 15%;
+	font-weight: normal;
+	margin-top: 15px;
+}
+
+.comment-date {
+	display: inline;
+	padding-left: 5%;
+	font-size: 15px;
+	font-weight: normal;
+	color: midnightblue;
+}
+
+.comment-email {
+	display: inline;
+	padding-left: 5%;
+	color: midnightblue;
+}
+
+.comment-email i {
+	color: black;
+}
+
+.comment-title-block {
+	width: 100%;
+}
+
+.comment-title-block .comment-date {
+	float: right;
+}
+
+.comment-title-block>i {
+	display: block;
+}

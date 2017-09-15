@@ -1,4 +1,5 @@
 ﻿@model M.Models.ViewModels.Home.HomeViewModel
+@using M.Utilities.Providers
 
 @section Header {
 	<link href="~/css/home.css" rel="stylesheet" />
@@ -29,7 +30,7 @@
 				<div class="post-short-notes">
 					<span class="text-nowrap">
 						<i class="fa fa-clock-o" aria-hidden="true"></i>
-						@post.PostingTime.Day @post.GetPostingMonth() @post.PostingTime.Year<span>р</span> @post.GetPostingTime()
+						@post.PostingTime.Day @MDateFormatsProvider.GetUkrMonth(post.PostingTime) @post.PostingTime.Year<span>р</span> @MDateFormatsProvider.GetUkrTime(post.PostingTime)
 					</span>
 					&nbsp;
 					<span class="text-nowrap">
